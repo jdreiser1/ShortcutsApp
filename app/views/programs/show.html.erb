@@ -1,0 +1,15 @@
+<h2><%= @program.name %></h2>
+<h4><%= @program.version %></h4>
+
+<h3>Hotkeys <%= link_to "(+)", new_program_hotkey_path(@program) %></h3>
+<ul>
+  <% @program.hotkeys.each do |hotkey| %>
+    <li>
+      <%= link_to "#{hotkey.name} - #{hotkey.function}", program_hotkey_path(@program, hotkey) %>
+      <%= link_to "Edit", edit_program_hotkey_path(@program, hotkey) %>
+      <%= link_to "New", new_program_hotkey_path(@program) %>
+      <%= link_to "Delete", program_hotkey_path(@program, hotkey), method: :delete %>
+    </li>
+
+  <% end %>
+</ul>

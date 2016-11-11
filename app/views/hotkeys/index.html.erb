@@ -1,0 +1,9 @@
+<h2>Hotkeys <%= link_to "(+)", new_project_hotkey_path %></h2>
+
+<ul>
+  <% @hotkeys.each do |hotkey| %>
+    <li>
+      <%= link_to "#{hotkey.name} - #{hotkey.project.}", project_hotkey_path(@project, song) %>
+    </li>
+  <% end %>
+</ul>

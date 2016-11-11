@@ -1,0 +1,15 @@
+<%= form_for [@program, @hotkey]  do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :function %>
+  <%= f.text_field :function %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<% @hotkey.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
