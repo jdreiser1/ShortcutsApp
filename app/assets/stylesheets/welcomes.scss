@@ -1,4 +1,4 @@
-// Place all the styles related to the users controller here.
+// Place all the styles related to the welcomes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
@@ -17,19 +17,27 @@ body {
   position: absolute;
   top: 150px;
 }
+#sign_up a {
+color: #FFFFFF;
+text-decoration: none;
+}
 #sign_in {
   font-size: 200%;
   color: white;
   position: absolute;
   top: 200px;
 }
-.field {
-  color: white;
-  font-size: 150%;
-  position: relative;
-  top:170px;
+#sign_in a {
+color: #FFFFFF;
+text-decoration: none;
 }
-.actions {
-  position: relative;
-  top: 200px;
+#sign_out {
+  font-size: 200%;
+  color:white;
+  position: absolute;
+  top: 250px;
+}
+#sign_out a {
+color: #FFFFFF;
+text-decoration: none;
 }

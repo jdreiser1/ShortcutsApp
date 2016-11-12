@@ -7,10 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body>
+  <div id = "title">Shortcuts</div>
+  <div id="sign_in_notice">
+    <% if current_user %>
+      <p>Welcome, <%= current_user.email %>!</p>
+      <%= link_to "Sign Out", destroy_user_session_path(user_session), method: :delete %>
+    <% end %>
+  </div>
   <% flash.each do |type, message| %>
   <p class="flash <%= type %>"><%= message %></p>
   <% end %>
-  <body>
     <%= yield %>
   </body>
 </html>

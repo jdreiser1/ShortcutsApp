@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-resources :programs do
-  resources :hotkeys
-end
-root "programs#index"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # resources :user
+  get '/users' => 'users#show', as: :user_root # creates user_root_path
+  resource :session
+  resources :programs do
+    resources :hotkeys
+  end
+  root "welcomes#index"
 end

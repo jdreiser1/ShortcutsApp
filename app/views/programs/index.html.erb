@@ -1,5 +1,5 @@
-<h2>Programs <%= link_to "+", new_program_path %></h2>
-
+<div id="sign_up">Programs <%= link_to "+", new_program_path %></div>
+<div id="sign_in">
 <ul>
   <% @programs.each do |program| %>
     <li>
@@ -8,3 +8,4 @@
     </li>
   <% end %>
 </ul>
+</div>

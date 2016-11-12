@@ -13,15 +13,49 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   background: url(http://wallpapersonthe.net/wallpapers/b/2560x1440/2560x1440-space_art_stars_space_universe_quasars_digital_blasphemy-6919.jpg) no-repeat center center fixed;
+   background-size: cover;
+ }
+ #title {
+   font-size: 500%;
+   color: orange;
+   position: absolute;
+   top: 50px;
+ }
+ #sign_up {
+   font-size: 200%;
+   color: white;
+   position: absolute;
+   top: 150px;
+ }
+ #sign_in {
+   font-size: 200%;
+   color: white;
+   position: absolute;
+   top: 200px;
+ }
+ .field {
+   color: white;
+   font-size: 150%;
+   position: relative;
+   top:170px;
+ }
+ .actions {
+   position: relative;
+   top: 200px;
+ }
  .flash {
    border: 1px solid black;
    padding: 1em;
    background: #eee;
  }
-
+#sign_in_notice{
+  position: absolute;
+  left: 700px;
+  top: 100px;
+  font-size: 150%;
+  color: white;
+}
  .alert  { color: red;  }
  .notice { color: blue; }
-
-/*body {
-  background: url(http://eskipaper.com/images/splash-wallpaper-2.jpg) no-repeat center center fixed;
-}*/
