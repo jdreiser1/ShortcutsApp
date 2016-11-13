@@ -1,15 +1,14 @@
-<h2><%= @program.name %></h2>
-<h4><%= @program.version %></h4>
-
-<h3>Hotkeys <%= link_to "(+)", new_program_hotkey_path(@program) %></h3>
+<div id="sign_up"><%= @program.name %> <br/>Hotkeys<%= link_to "(+)", new_program_hotkey_path(@program) %></div>
+<div id="sign_in">
+<!-- <h3>Hotkeys <%= link_to "(+)", new_program_hotkey_path(@program) %></h3> -->
 <ul>
   <% @program.hotkeys.each do |hotkey| %>
-    <li>
-      <%= link_to "#{hotkey.name} - #{hotkey.function}", program_hotkey_path(@program, hotkey) %>
-      <%= link_to "Edit", edit_program_hotkey_path(@program, hotkey) %>
-      <%= link_to "New", new_program_hotkey_path(@program) %>
-      <%= link_to "Delete", program_hotkey_path(@program, hotkey), method: :delete %>
+    <li style="width: 800px;">
+      <%= link_to "#{hotkey.task}", program_hotkey_path(@program, hotkey) %>
+      <div style="float: right"><%= link_to "Edit", edit_program_hotkey_path(@program, hotkey) %>
+      <%= link_to "Delete", program_hotkey_path(@program, hotkey), method: :delete %></div><br/>
+      <%= link_to "#{hotkey.keystrokes}", program_hotkey_path(@program, hotkey) %>
     </li>
-
   <% end %>
 </ul>
+</div>

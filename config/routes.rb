@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   # resources :user
+  resource :users
   get '/users' => 'users#show', as: :user_root # creates user_root_path
-  resource :session
+  resource :sessions
   resources :programs do
     resources :hotkeys
   end

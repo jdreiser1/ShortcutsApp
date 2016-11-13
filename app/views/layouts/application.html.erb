@@ -10,9 +10,10 @@
   <body>
   <div id = "title">Shortcuts</div>
   <div id="sign_in_notice">
-    <% if current_user %>
-      <p>Welcome, <%= current_user.email %>!</p>
-      <%= link_to "Sign Out", destroy_user_session_path(user_session), method: :delete %>
+    <% if @current_user %>
+      <p>"Welcome, <%= @current_user.username %>!"<p/>
+      <%= link_to "View your database", programs_path %><br/>
+      <%= link_to "Sign Out", sessions_path, method: :delete %>
     <% end %>
   </div>
   <% flash.each do |type, message| %>

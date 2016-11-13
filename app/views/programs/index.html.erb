@@ -2,9 +2,9 @@
 <div id="sign_in">
 <ul>
   <% @programs.each do |program| %>
-    <li>
-      <%= link_to "#{program.name} - #{program.version}", program %>
-      <%= link_to "Edit", edit_program_path(program.id) %>
+    <li style="width: 300px;">
+      <%= link_to "#{program.name}", program %>
+      <div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div>
     </li>
   <% end %>
 </ul>
