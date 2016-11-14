@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
-  belongs.to :user
-  belongs.to :hotkey
+  belongs_to :user
+  belongs_to :hotkey
 end

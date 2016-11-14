@@ -1,1 +1,18 @@
-<div id="sign_up"><%= link_to 'Programs', programs_path %></div>
+<div id="sign_up">Favorites</div>
+<div id="sign_in">
+<table style="width: 800px;">
+  <% @current_user.hotkeys.each_with_index do |hotkey, i| %>
+  <%#= render plain: @current_user.hotkeys[i].program.inspect %>
+  <% if @current_user.hotkeys[i].program != @current_user.hotkeys[i+1].program %>
+  <%= link_to "#{hotkey.program.name}", program_path(hotkey.program.id) %><br/>
+  <% end %>
+  <%= link_to "#{hotkey.task}", program_hotkey_path(hotkey.program.id, hotkey) %>
+    <div style="float: right">
+    <%= link_to "Remove from Favorites".html_safe, remove_favorite_program_hotkey_path(hotkey.program.id, hotkey), method: :delete %>
+    <%= link_to "Edit", edit_program_hotkey_path(hotkey.program.id, hotkey) %>
+    <%= link_to "Delete", program_hotkey_path(hotkey.program.id, hotkey), method: :delete %><br/>
+  </div>
+  <% end %>
+</table
+<!-- </ul> -->
+</div>

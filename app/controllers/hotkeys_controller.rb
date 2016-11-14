@@ -5,6 +5,12 @@ class HotkeysController < ApplicationController
     @hotkey = Hotkey.find(params[:id])
   end
 
+  def add_favorite
+    @hotkey = Hotkey.find(params[:id])
+    @favorite = Favorite.create!(user: @current_user, hotkey: @hotkey)
+    redirect_to program_path(@hotkey.program.id)
+  end
+
   def index
     @hotkeys = Hotkey.all
   end
