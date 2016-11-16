@@ -1,12 +1,16 @@
 <%= form_for [@program, @hotkey]  do |f| %>
+  <div class='field'>
+  <%= f.label :keystrokes %>
+  <%= f.text_field :keystrokes %>
+  </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :function %>
-  <%= f.text_field :function %>
-
+  <div class='field'>
+  <%= f.label :task%>
+  <%= f.text_field :task %>
+  </div>
+  <div class='field'>
   <%= f.submit %>
+  </div>
 
 <% end %>
 

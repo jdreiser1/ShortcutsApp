@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-
+    @sort_favorites = @current_user.get_sorted_favorites
   end
 
   def new
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
-    redirect_to root_path
+    redirect_to user_root_path
   end
 
   private

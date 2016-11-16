@@ -1,18 +1,38 @@
 <div id="sign_up">Favorites</div>
-<div id="sign_in">
-<table style="width: 800px;">
-  <% @current_user.hotkeys.each_with_index do |hotkey, i| %>
-  <%#= render plain: @current_user.hotkeys[i].program.inspect %>
-  <% if @current_user.hotkeys[i].program != @current_user.hotkeys[i+1].program %>
-  <%= link_to "#{hotkey.program.name}", program_path(hotkey.program.id) %><br/>
+<div style="width: 1000px;">
+  <div id="sign_in">
+  <% @sort_favorites.each do |program, hotkeys| %>
+    <%= link_to "#{program.name}", program_path(program.id) %><br/>
+    <ul>
+    <% hotkeys.each do |hotkey| %>
+      <li style="width: 800px; whitespace: pre;">
+        <%= link_to "#{hotkey.task}", program_hotkey_path(program, hotkey) %>
+        <%= link_to "#{hotkey.keystrokes}", program_hotkey_path(program, hotkey) %>
+        <div style="float: right">
+        <%= link_to "Remove From Favorites", add_favorite_program_hotkey_path(program, hotkey), method: :post %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
   <% end %>
-  <%= link_to "#{hotkey.task}", program_hotkey_path(hotkey.program.id, hotkey) %>
-    <div style="float: right">
-    <%= link_to "Remove from Favorites".html_safe, remove_favorite_program_hotkey_path(hotkey.program.id, hotkey), method: :delete %>
-    <%= link_to "Edit", edit_program_hotkey_path(hotkey.program.id, hotkey) %>
-    <%= link_to "Delete", program_hotkey_path(hotkey.program.id, hotkey), method: :delete %><br/>
   </div>
+</div> -->
+<!-- <div id="sign_up">Favorites</div>
+<div style="width: 1000px;">
+  <div id="sign_in">
+  <% @sort_favorites.each do |program, hotkeys| %>
+    <%= link_to "#{program.name}", program_path(program.id) %><br/>
+    <ul>
+    <% hotkeys.each do |hotkey| %>
+      <li style="width: 800px; whitespace: pre;">
+        <%= link_to "#{hotkey.task}", program_hotkey_path(program, hotkey) %>
+        <%= link_to "#{hotkey.keystrokes}", program_hotkey_path(program, hotkey) %>
+        <div style="float: right">
+        <%= link_to "Remove From Favorites", add_favorite_program_hotkey_path(program, hotkey), method: :post %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
   <% end %>
-</table
-<!-- </ul> -->
+  </div>
 </div>

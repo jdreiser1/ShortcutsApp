@@ -3,20 +3,32 @@
   <head>
     <title>Hotkeys</title>
     <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
   <header>
-  <div id = "title">Shortcuts</div>
-  <div id="sign_in_notice">
+<nav id="header">
+<p>Shortcuts</p>
+<div id="sign_in_notice">
     <% if @current_user %>
-      <p>"Welcome, <%= @current_user.username %>!!"<p/>
-      <%= link_to "View your database", programs_path %><br/>
-      <%= link_to "Sign Out", sessions_path, method: :delete %>
+    Welcome, <%= @current_user.username %>!!
+    <%= link_to "View your database", programs_path %>
+    <%= link_to "Sign Out", sessions_path, method: :delete %>
+    <% else %>
+    <%= link_to "Sign In", new_sessions_path %>
+    <%= link_to "Sign Up", new_users_path %>
     <% end %>
-  </div>
+</div>
+</nav>
+<nav>
+      <a><%= link_to 'Programs', programs_path %></a>
+      <a><%= link_to 'Favorites', user_root_path %></a>
+      <a>Popular Hotkeys</a>
+</nav>
+
 </header>
   <% flash.each do |type, message| %>
   <p class="flash <%= type %>"><%= message %></p>

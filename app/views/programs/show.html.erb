@@ -7,13 +7,12 @@
       <%= link_to "#{hotkey.task}", program_hotkey_path(@program, hotkey) %>
       <div style="float: right">
         <% if hotkey.users.include? @current_user %>
-          <%= link_to "Favorited".html_safe, remove_favorite_program_hotkey_path(@program, hotkey), method: :delete, class: "fav" %>
+          <%= link_to "Favorited", remove_favorite_program_hotkey_path(@program, hotkey), method: :delete, class: "fav" %>
         <% else %>
-          <%= link_to "Add to Favorites".html_safe, add_favorite_program_hotkey_path(@program, hotkey), method: :post, class: "no-fav" %>
+          <%= link_to "Add to Favorites", add_favorite_program_hotkey_path(@program, hotkey), method: :post, class: "no-fav" %>
         <% end %>
         <%= link_to "Edit", edit_program_hotkey_path(@program, hotkey) %>
         <%= link_to "Delete", program_hotkey_path(@program, hotkey), method: :delete %></div><br/>
-      <!-- </div> -->
     </li>
   <% end %>
 </ul>

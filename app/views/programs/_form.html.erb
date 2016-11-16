@@ -1,11 +1,12 @@
 <%= form_for @program do |f| %>
 
+  <div class="field">
   <%= f.label :name %>
   <%= f.text_field :name %>
+  </div>
 
-  <%= f.label :version %>
-  <%= f.text_field :version %>
-
+  <div class="field">
   <%= f.submit %>
+</div>
 
 <% end %>

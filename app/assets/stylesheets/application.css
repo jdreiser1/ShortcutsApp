@@ -14,32 +14,65 @@
  *= require_self
  */
  body {
-   background: url(http://wallpapersonthe.net/wallpapers/b/2560x1440/2560x1440-space_art_stars_space_universe_quasars_digital_blasphemy-6919.jpg) no-repeat center center fixed;
+   /*background: url(http://wallpapersonthe.net/wallpapers/b/2560x1440/2560x1440-space_art_stars_space_universe_quasars_digital_blasphemy-6919.jpg) no-repeat center center fixed;*/
    background-size: cover;
+   font-family: helvetica;
+   margin: 0;
+   text-align: center;
  }
-#sign_in_notice a{
-  color: orange;
+header {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+     font-family: pacifico;
+}
+li{
+  text-style: none;
+}
+nav {
+  font-size: 120%;
+  color: white;
+}
+nav a {
   text-decoration: none;
+  color: white;
 }
-
+#header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
 }
- #title {
-   font-size: 500%;
+ul {
+  list-style: none;
+}
+p{
+   font-size: 300%;
    color: orange;
-   position: absolute;
-   top: 50px;
+   margin: 0;
+   text-shadow: 2px 2px #ff0000;
+ }
+ nav{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
+
+ nav>a{
+  padding: 0 20px;
+ }
+ a:hover{
+   background: blue;
  }
  #sign_up {
    font-size: 200%;
    color: white;
-   position: absolute;
-   top: 150px;
+   /*position: absolute;
+   top: 150px;*/
+   /*float: right;*/
  }
  #sign_in {
    font-size: 200%;
    color: white;
-   position: absolute;
-   top: 200px;
  }
  .field {
    color: white;
@@ -52,16 +85,13 @@
    top: 200px;
  }
  .flash {
-   border: 1px solid black;
    padding: 1em;
-   background: #eee;
+   text-align: center;
+   font-size: 20px;
  }
 #sign_in_notice{
-  position: absolute;
-  left: 900px;
-  top: 100px;
-  font-size: 150%;
-  color: orange;
+  text-align: right;
+  margin-top: 46px;
 }
  .alert  { color: red;  }
  .notice { color: blue; }
