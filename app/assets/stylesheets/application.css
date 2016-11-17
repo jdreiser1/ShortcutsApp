@@ -29,12 +29,6 @@ header {
     font-family: pacifico;
 }
 
-li a {
-    text-decoration: none;
-    color: white;
-    /*text-shadow: 2px 2px #ff0000;*/
-}
-
 nav {
     font-size: 120%;
     color: orange;
@@ -60,9 +54,7 @@ ul {
 
 p {
     font-size: 300%;
-    /*color: orange;*/
     margin: 0;
-    /*text-shadow: 2px 2px #ff0000;*/
 }
 
 nav {
@@ -82,9 +74,6 @@ a:hover {
 #sign_up {
     font-size: 200%;
     color: white;
-    /*position: absolute;
-   top: 150px;*/
-    /*float: right;*/
 }
 
 #sign_in {

@@ -11,6 +11,9 @@
         <div class="hotkey-details">
           <h3>Description</h3>
         </div>
+        <div class="hotkey-details">
+          <h3>Remove from Favorites</h3>
+        </div>
       </div>
       <% hotkeys.each do |hotkey| %>
             <div class="hotkey-titles2">
@@ -19,6 +22,9 @@
               </div>
               <div class="hotkey-details">
                 <p><%= hotkey.description %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= link_to 'Remove from Favorites', remove_favorite_program_hotkey_path(hotkey.program, hotkey), method: :delete %></p>
               </div>
             </div>
       <% end %>
