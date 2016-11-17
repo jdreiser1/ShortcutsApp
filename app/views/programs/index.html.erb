@@ -1,11 +1,8 @@
-<div id="sign_up">Programs <%= link_to "+", new_program_path %></div>
-<div id="sign_in">
+<h2><%= link_to "New Program", new_program_path %></h2>
+
 <ul>
-  <% @programs.each do |program| %>
-    <li style="width: 300px;">
-      <%= link_to "#{program.name}", program %>
-      <div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div>
-    </li>
-  <% end %>
+    <% @programs.each do |program| %>
+        <li><%= link_to "#{program.name}", program %></li>
+        <li><div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div></li>
+    <% end %>
 </ul>
-</div>

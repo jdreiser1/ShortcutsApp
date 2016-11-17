@@ -13,85 +13,160 @@
  *= require_tree .
  *= require_self
  */
- body {
-   /*background: url(http://wallpapersonthe.net/wallpapers/b/2560x1440/2560x1440-space_art_stars_space_universe_quasars_digital_blasphemy-6919.jpg) no-repeat center center fixed;*/
-   background-size: cover;
-   font-family: helvetica;
-   margin: 0;
-   text-align: center;
- }
-header {
-  background-color: rgba(0, 0, 0, 0.5);
-  background-size: cover;
-     font-family: pacifico;
-}
-li{
-  text-style: none;
-}
-nav {
-  font-size: 120%;
-  color: white;
-}
-nav a {
-  text-decoration: none;
-  color: white;
-}
-#header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-}
-ul {
-  list-style: none;
-}
-p{
-   font-size: 300%;
-   color: orange;
-   margin: 0;
-   text-shadow: 2px 2px #ff0000;
- }
- nav{
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
- }
 
- nav>a{
-  padding: 0 20px;
- }
- a:hover{
-   background: blue;
- }
- #sign_up {
-   font-size: 200%;
-   color: white;
-   /*position: absolute;
-   top: 150px;*/
-   /*float: right;*/
- }
- #sign_in {
-   font-size: 200%;
-   color: white;
- }
- .field {
-   color: white;
-   font-size: 150%;
-   position: relative;
-   top:170px;
- }
- .actions {
-   position: relative;
-   top: 200px;
- }
- .flash {
-   padding: 1em;
-   text-align: center;
-   font-size: 20px;
- }
-#sign_in_notice{
-  text-align: right;
-  margin-top: 46px;
+body {
+    font-family: helvetica;
+    margin: 0;
+    text-align: center;
+    background-color: white;
+    background: url(https://static.pexels.com/photos/27665/pexels-photo-27665.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
- .alert  { color: red;  }
- .notice { color: blue; }
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    font-family: pacifico;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    /*text-shadow: 2px 2px #ff0000;*/
+}
+
+nav {
+    font-size: 120%;
+    color: orange;
+    text-shadow: 2px 2px #ff0000;
+}
+
+nav a {
+    text-decoration: none;
+    color: orange;
+    text-shadow: 2px 2px #ff0000;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 300%;
+    /*color: orange;*/
+    margin: 0;
+    /*text-shadow: 2px 2px #ff0000;*/
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav>a {
+    padding: 0 20px;
+}
+
+a:hover {
+    background: blue;
+}
+
+#sign_up {
+    font-size: 200%;
+    color: white;
+    /*position: absolute;
+   top: 150px;*/
+    /*float: right;*/
+}
+
+#sign_in {
+    font-size: 200%;
+    color: white;
+}
+
+.field {
+    color: white;
+    font-size: 150%;
+    position: relative;
+    top: 170px;
+}
+
+.actions {
+    position: relative;
+    top: 200px;
+}
+
+.flash {
+    padding: 1em;
+    text-align: center;
+    font-size: 20px;
+}
+
+#sign_in_notice {
+    text-align: right;
+    margin-top: 46px;
+}
+
+.alert {
+    color: red;
+}
+
+.notice {
+    color: blue;
+}
+
+#programs {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 5px;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.program {
+    border: 1px solid rgb(56, 57, 56);
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 15px;
+}
+
+.program-name {
+    background-color: rgba(0, 178, 169, 0.5);
+    font-size: 200%;
+}
+
+.hotkey-titles {
+    display: flex;
+    font-size: 200%;
+}
+
+.hotkey-titles2 {
+    display: flex;
+}
+.hotkey-details {
+    display: flex;
+    background-color: rgba(201,255,252,0.5);
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid rgb(56, 57, 56);
+    height: 50px;
+}
+
+a:selected {
+  color: red
+}
+
+.fave {
+  color: red;
+  text-decoration: none;
+  font-size: 30px;
+}

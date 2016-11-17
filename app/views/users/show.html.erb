@@ -1,38 +1,27 @@
-<div id="sign_up">Favorites</div>
-<div style="width: 1000px;">
-  <div id="sign_in">
+<div id="programs">
   <% @sort_favorites.each do |program, hotkeys| %>
-    <%= link_to "#{program.name}", program_path(program.id) %><br/>
-    <ul>
-    <% hotkeys.each do |hotkey| %>
-      <li style="width: 800px; whitespace: pre;">
-        <%= link_to "#{hotkey.task}", program_hotkey_path(program, hotkey) %>
-        <%= link_to "#{hotkey.keystrokes}", program_hotkey_path(program, hotkey) %>
-        <div style="float: right">
-        <%= link_to "Remove From Favorites", add_favorite_program_hotkey_path(program, hotkey), method: :post %>
+    <div class="program">
+      <div class="program-name">
+      <h2><%= program.name %></h2>
+      </div>
+      <div class="hotkey-titles" id="hotkey-titles">
+        <div class="hotkey-details">
+          <h3>Keystroke</h3>
         </div>
-      </li>
-    <% end %>
-  </ul>
-  <% end %>
-  </div>
-</div> -->
-<!-- <div id="sign_up">Favorites</div>
-<div style="width: 1000px;">
-  <div id="sign_in">
-  <% @sort_favorites.each do |program, hotkeys| %>
-    <%= link_to "#{program.name}", program_path(program.id) %><br/>
-    <ul>
-    <% hotkeys.each do |hotkey| %>
-      <li style="width: 800px; whitespace: pre;">
-        <%= link_to "#{hotkey.task}", program_hotkey_path(program, hotkey) %>
-        <%= link_to "#{hotkey.keystrokes}", program_hotkey_path(program, hotkey) %>
-        <div style="float: right">
-        <%= link_to "Remove From Favorites", add_favorite_program_hotkey_path(program, hotkey), method: :post %>
+        <div class="hotkey-details">
+          <h3>Description</h3>
         </div>
-      </li>
-    <% end %>
-  </ul>
-  <% end %>
+      </div>
+      <% hotkeys.each do |hotkey| %>
+            <div class="hotkey-titles2">
+              <div class="hotkey-details">
+                <p><%= hotkey.keystrokes %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= hotkey.description %></p>
+              </div>
+            </div>
+      <% end %>
   </div>
+  <% end %>
 </div>

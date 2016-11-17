@@ -1,13 +1,18 @@
 class HotkeysController < ApplicationController
-  before_action :get_hotkey, only: [:show, :edit, :update, :destroy]
+  before_action :get_hotkey, only: [:show, :edit, :update, :destroy, :add_favorite, :remove_favorite]
 
   def get_hotkey
     @hotkey = Hotkey.find(params[:id])
   end
 
   def add_favorite
-    @hotkey = Hotkey.find(params[:id])
     @favorite = Favorite.create!(user: @current_user, hotkey: @hotkey)
+    redirect_to program_path(@hotkey.program.id)
+  end
+
+  def remove_favorite
+    @favorite = Favorite.find_by(user: @current_user, hotkey: @hotkey)
+    @favorite.destroy
     redirect_to program_path(@hotkey.program.id)
   end
 

@@ -1,21 +1,38 @@
-<div id="sign_up"><%= @program.name %> <br/>Hotkeys<%= link_to "(+)", new_program_hotkey_path(@program) %></div>
-<div id="sign_in">
 <!-- <h3>Hotkeys <%= link_to "(+)", new_program_hotkey_path(@program) %></h3> -->
-<ul>
-  <% @program.hotkeys.each do |hotkey| %>
-    <li style="width: 800px;">
-      <%= link_to "#{hotkey.task}", program_hotkey_path(@program, hotkey) %>
-      <div style="float: right">
-        <% if hotkey.users.include? @current_user %>
-          <%= link_to "Favorited", remove_favorite_program_hotkey_path(@program, hotkey), method: :delete, class: "fav" %>
-        <% else %>
-          <%= link_to "Add to Favorites", add_favorite_program_hotkey_path(@program, hotkey), method: :post, class: "no-fav" %>
-        <% end %>
-        <%= link_to "Edit", edit_program_hotkey_path(@program, hotkey) %>
-        <%= link_to "Delete", program_hotkey_path(@program, hotkey), method: :delete %></div><br/>
-    </li>
-  <% end %>
-</ul>
-</div>
-</ul>
+<h2 style="font-size: 200%; font-decoration: none; font-color: black; text-align:center;"><%= link_to 'Add Hotkey', new_program_hotkey_path(@program) %></h2>
+<div id="programs">
+    <div class="program">
+      <div class="program-name">
+      <h2><%= @program.name %></h2>
+      </div>
+      <div class="hotkey-titles" id="hotkey-titles">
+        <div class="hotkey-details">
+          <h3>Keystroke</h3>
+        </div>
+        <div class="hotkey-details">
+          <h3>Description</h3>
+        </div>
+        <div class="hotkey-details">
+          <h3>Favorites / Remove From Hotkeys</h3>
+        </div>
+      </div>
+      <% @program.hotkeys.each do |hotkey| %>
+            <div class="hotkey-titles2">
+              <div class="hotkey-details">
+                <p><%= hotkey.keystrokes %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= hotkey.description %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= link_to "Remove Hotkey", program_hotkey_path(@program, hotkey), method: :delete %>
+                <% if @current_user.hotkeys.include?(hotkey) %>
+                  <p><%= link_to '&#x2665'.html_safe, remove_favorite_program_hotkey_path(@program.id, hotkey.id), method: :delete, :class => "fave" %></p>
+                <% else %>
+                  <p><%= link_to 'Add to Favorites', add_favorite_program_hotkey_path(@program.id, hotkey.id), method: :post %></p>
+                <% end %>
+              </div>
+            </div>
+      <% end %>
+  </div>
 </div>
