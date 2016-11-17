@@ -1,8 +1,8 @@
-<h2><%= link_to "New Program", new_program_path %></h2>
+<div id="new-program"><%= link_to "New Program", new_program_path %></div>
 
-<ul>
+<div id="container">
     <% @programs.each do |program| %>
-        <li><%= link_to "#{program.name}", program %></li>
-        <li><div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div></li>
+        <div class="program-title"><%= link_to "#{program.name}", program %>
+        <div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div></div>
     <% end %>
-</ul>
+</div>

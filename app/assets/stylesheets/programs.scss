@@ -1,3 +1,22 @@
 // Place all the styles related to the programs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.program-title{
+  width: 600px;
+  border: 2px solid black;
+  font-size: 300%;
+  background-color: rgba(128,128,128, 0.65);
+  margin: 20px 0;
+}
+#new-program{
+  margin: 40px 0;
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+  text-align:center;
+}

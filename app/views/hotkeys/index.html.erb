@@ -1,9 +1,34 @@
-<h2>Hotkeys <%= link_to "(+)", new_project_hotkey_path %></h2>
-
-<ul>
-  <% @hotkeys.each do |hotkey| %>
-    <li>
-      <%= link_to "#{hotkey.name} - #{hotkey.project.}", project_hotkey_path(@project, song) %>
-    </li>
-  <% end %>
-</ul>
+<h2>Popular Hotkeys</h2>
+<div id="programs">
+    <div class="program">
+      <div class="hotkey-titles" id="hotkey-titles">
+        <div class="hotkey-details">
+          <h3>Keystroke</h3>
+        </div>
+        <div class="hotkey-details">
+          <h3>Description</h3>
+        </div>
+        <div class="hotkey-details">
+          <h3>Number of Favorites</h3>
+        </div>
+      </div>
+      <% @hotkeys.order(:numOfFavorite).reverse.each do |hotkey| %>
+            <div class="hotkey-titles2">
+              <div class="hotkey-details">
+                <p><%= hotkey.keystrokes %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= hotkey.description %></p>
+              </div>
+              <div class="hotkey-details">
+                <p><%= hotkey.numOfFavorite %></p>
+                <% if @current_user.hotkeys.include?(hotkey) %>
+                  <p><%= link_to '&#x2665'.html_safe, remove_favorite_program_hotkey_path(hotkey.program, hotkey), method: :delete, :class => "fave" %></p>
+                <% else %>
+                  <p><%= link_to 'Add to Favorites', add_favorite_program_hotkey_path(hotkey.program, hotkey), method: :post %></p>
+                <% end %>
+              </div>
+            </div>
+      <% end %>
+  </div>
+</div>

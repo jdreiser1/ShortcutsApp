@@ -16,7 +16,7 @@
           <h3>Favorites / Remove From Hotkeys</h3>
         </div>
       </div>
-      <% @program.hotkeys.each do |hotkey| %>
+      <% @program.hotkeys.order(:description).each do |hotkey| %>
             <div class="hotkey-titles2">
               <div class="hotkey-details">
                 <p><%= hotkey.keystrokes %></p>

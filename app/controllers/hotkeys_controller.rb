@@ -7,28 +7,32 @@ class HotkeysController < ApplicationController
 
   def add_favorite
     @favorite = Favorite.create!(user: @current_user, hotkey: @hotkey)
+    @hotkey.numOfFavorite += 1
+    @hotkey.save
     redirect_to program_path(@hotkey.program.id)
   end
 
   def remove_favorite
     @favorite = Favorite.find_by(user: @current_user, hotkey: @hotkey)
     @favorite.destroy
+    @hotkey.numOfFavorite += 1
     redirect_to program_path(@hotkey.program.id)
   end
 
   def index
+    redirect_to root_path unless @current_user
     @hotkeys = Hotkey.all
   end
 
-  def show
-  end
 
   def new
+    redirect_to root_path unless @current_user
     @hotkey = Hotkey.new
     @program = Program.find(params[:program_id])
   end
 
   def edit
+    redirect_to root_path unless @current_user
     @program = Program.find(params[:program_id])
   end
 
