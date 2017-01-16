@@ -2,8 +2,9 @@
 <h2 style="font-size: 200%; font-decoration: none; font-color: black; text-align:center;"><%= link_to 'Add Hotkey', new_program_hotkey_path(@program) %></h2>
 <div id="programs">
     <div class="program">
-      <div class="program-name">
+      <div style="display: inline" class="program-name">
       <h2><%= @program.name %></h2>
+      <h2 style="font-size:200%; display: inline; float: right"><%= link_to '+', new_program_hotkey_path(@program) %></h2>
       </div>
       <div class="hotkey-titles" id="hotkey-titles">
         <div class="hotkey-details">
@@ -36,3 +37,8 @@
       <% end %>
   </div>
 </div>
+<script> 
+console.log("hit")
+  let program = document.getElementsByClassName('program-name')
+  console.log(program)
+</script>
