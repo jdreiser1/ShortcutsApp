@@ -6,3 +6,67 @@
         <div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div></div>
     <% end %>
 </div>
+
+<div id="programs">
+	<% @programs.each do |program| %>
+      <div class="program">
+        <div class="program-name">
+        <h2 style="display: inline-block;"><%= program.name %></h2>
+        <h2 style="display: inline-block; float: right; text-decoration: none"><%= link_to 'Add Hotkey', new_program_hotkey_path(program) %></h2>
+        </div>
+        <div class="hotkey-titles" id="hotkey-titles">
+          <div class="hotkey-details">
+            <h3>Keystroke</h3>
+          </div>
+          <div class="hotkey-details">
+          </div>
+          <div class="hotkey-details">
+            <h3>Favorites / Remove From Hotkeys</h3>
+          </div>
+        </div>
+            <h3>Description</h3>
+    <% program.hotkeys.order(:description).each do |hotkey| %>
+        <div class="hotkey-titles2">
+          <div class="hotkey-details">
+           <p><%= hotkey.keystrokes %></p>
+           </div>
+            <div class="hotkey-details">
+              <p><%= hotkey.description %></p>
+            </div>
+            <div class="hotkey-details">
+              <p><%= link_to "Remove Hotkey", program_hotkey_path(program, hotkey), method: :delete %>
+              <% if @current_user.hotkeys.include?(hotkey) %>
+                <p><%= link_to '&#x2665'.html_safe, remove_favorite_program_hotkey_path(program.id, hotkey.id), method: :delete, :class => "fave" %></p>
+              <% else %>
+                <p><%= link_to 'Add to Favorites', add_favorite_program_hotkey_path(program.id, hotkey.id), method: :post %></p>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+  </div>
+  <% end %>
+</div>
+<script> 
+let programs = document.getElementsByClassName('program-name')
+for (let i = 0; i < programs.length; i++){
+	programs[i].addEventListener("click", () => visibilityFunc(event.target))
+}
+function visibilityFunc(program) {
+	let nodeList = program.parentNode.childNodes
+	console.log(nodeList)
+	for (let j=5; j < nodeList.length; j++){
+		let x = nodeList[j]
+		console.log(x.style)
+		if (x.style !== undefined && x.style.display === ''){
+			console.log("hit1")
+			x.style.display = 'flex'
+		}else if(x.style !== undefined && x.style.display === 'flex'){
+			console.log("hit2")
+			x.style.display = ''
+		}
+		else {
+			console.log("hit3")
+		}
+	}
+}
+</script>
