@@ -34,3 +34,30 @@
       <% end %>
   </div>
 </div>
+<script> 
+if (!programs){
+  let programs;
+} 
+programs = document.getElementsByClassName('program-name')
+for (let i = 0; i < programs.length; i++){
+  programs[i].addEventListener("click", () => visibilityFunc(event.target))
+}
+function visibilityFunc(program) {
+  let nodeList = program.parentNode.childNodes
+  console.log(nodeList)
+  for (let j=5; j < nodeList.length; j++){
+    let x = nodeList[j]
+    console.log(x.style)
+    if (x.style !== undefined && x.style.display === ''){
+      console.log("hit1")
+      x.style.display = 'flex'
+    }else if(x.style !== undefined && x.style.display === 'flex'){
+      console.log("hit2")
+      x.style.display = ''
+    }
+    else {
+      console.log("hit3")
+    }
+  }
+}
+</script>

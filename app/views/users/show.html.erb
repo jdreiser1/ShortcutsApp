@@ -2,7 +2,7 @@
   <% @sort_favorites.each do |program, hotkeys| %>
     <div class="program">
       <div class="program-name">
-      <h2><%= program.name %></h2>
+      <h2 style="display:inline-block;"><%= program.name %></h2>
       </div>
       <div class="hotkey-titles" id="hotkey-titles">
         <div class="hotkey-details">
@@ -32,11 +32,13 @@
   <% end %>
 </div>
 <script>
+console.log("hit5")
 if (!programs){
 let programs;
 } 
 programs = document.getElementsByClassName('program-name')
 for (let i = 0; i < programs.length; i++){
+  console.log("hit4")
   programs[i].addEventListener("click", () => visibilityFunc(event.target))
 }
 function visibilityFunc(program) {
@@ -46,14 +48,11 @@ function visibilityFunc(program) {
     let x = nodeList[j]
     console.log(x.style)
     if (x.style !== undefined && x.style.display === ''){
-      console.log("hit1")
       x.style.display = 'flex'
     }else if(x.style !== undefined && x.style.display === 'flex'){
-      console.log("hit2")
       x.style.display = ''
     }
     else {
-      console.log("hit3")
     }
   }
 }
