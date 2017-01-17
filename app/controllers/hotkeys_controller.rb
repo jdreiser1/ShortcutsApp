@@ -9,14 +9,14 @@ class HotkeysController < ApplicationController
     @favorite = Favorite.create!(user: @current_user, hotkey: @hotkey)
     @hotkey.numOfFavorite += 1
     @hotkey.save
-    redirect_to program_path(@hotkey.program.id)
+    redirect_to programs_path
   end
 
   def remove_favorite
     @favorite = Favorite.find_by(user: @current_user, hotkey: @hotkey)
     @favorite.destroy
     @hotkey.numOfFavorite += 1
-    redirect_to program_path(@hotkey.program.id)
+    redirect_to programs_path
   end
 
   def index

@@ -1,11 +1,4 @@
-<div id="new-program"><%= link_to "New Program", new_program_path %></div>
-
-<div id="container">
-    <% @programs.each do |program| %>
-        <div class="program-title"><%= link_to "#{program.name}", program %>
-        <div style="float: right;"><%= link_to "Edit", edit_program_path(program.id) %></div></div>
-    <% end %>
-</div>
+<div id="new-program"><%= link_to "Add Program", new_program_path %></div>
 
 <div id="programs">
 	<% @programs.each do |program| %>
@@ -19,15 +12,15 @@
             <h3>Keystroke</h3>
           </div>
           <div class="hotkey-details">
+          	<h3>Description</h3>
           </div>
           <div class="hotkey-details">
             <h3>Favorites / Remove From Hotkeys</h3>
           </div>
         </div>
-            <h3>Description</h3>
     <% program.hotkeys.order(:description).each do |hotkey| %>
-        <div class="hotkey-titles2">
-          <div class="hotkey-details">
+        <div class="hotkey-titles2"> 
+ 	    <div class="hotkey-details">
            <p><%= hotkey.keystrokes %></p>
            </div>
             <div class="hotkey-details">
@@ -47,7 +40,10 @@
   <% end %>
 </div>
 <script> 
-let programs = document.getElementsByClassName('program-name')
+if (!programs){
+	let programs;
+} 
+programs = document.getElementsByClassName('program-name')
 for (let i = 0; i < programs.length; i++){
 	programs[i].addEventListener("click", () => visibilityFunc(event.target))
 }
