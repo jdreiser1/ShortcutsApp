@@ -12,6 +12,10 @@
   <header>
 <nav id="header">
 <p>Shortcuts</p>
+<% if @current_user %>
+<% else %>
+<h4 style="text-shadow: 0 0 #ff0000;font-size: 130%; margin-top: 40px;color: red; text-align: center;">Sign in first in order to use application</h4>
+<% end %>
 <div id="sign_in_notice">
     <% if @current_user %>
     Welcome, <%= @current_user.username %>!<br/>
@@ -29,7 +33,6 @@
 </nav>
 
 </header>
-  <h4>Sign in first in order to use application</h4> 
   <% flash.each do |type, message| %>
   <p class="flash <%= type %>"><%= message %></p>
   <% end %>

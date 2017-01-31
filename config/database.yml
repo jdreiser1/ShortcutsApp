@@ -16,14 +16,16 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  timeout: 5000
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
+  username: jonathanreiser
+  password: gj3mhrLf
 
 development:
   <<: *default
-  database: hotkeys_development
+  database: hotkeys
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: hotkeys_test
+  database: hotkeys
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: hotkeys_production
-  username: hotkeys
-  password: <%= ENV['HOTKEYS_DATABASE_PASSWORD'] %>
+  database: hotkeys

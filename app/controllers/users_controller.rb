@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
+
   def show
-    redirect_to root_path unless @current_user
-    @sort_favorites = @current_user.get_sorted_favorites
+    unless @current_user
+      redirect_to root_path @current_user
+    else
+      @sort_favorites = @current_user.get_sorted_favorites
+    end
   end
 
   def new
