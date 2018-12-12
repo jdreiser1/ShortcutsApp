@@ -173,6 +173,12 @@ footer{
   padding: 10px 20px;
 }
 
+p {
+    font-size: 300%;
+    margin: 0;
+}
+
+
 .field {
     color: white;
     font-size: 150%;

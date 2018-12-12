@@ -11,11 +11,16 @@
   <body>
   <header>
 <nav id="header">
-<p>Shortcuts</p>
-<% if @current_user %>
-<% else %>
-<h4 style="text-shadow: 0 0 #ff0000;font-size: 130%; margin-top: 40px;color: red; text-align: center;">Sign in first in order to use application</h4>
-<% end %>
+	<div class="left">
+	<h1 class="logo">Shortcuts</h1>
+	<% if @current_user %>
+	<% else %>
+	<div class="tag">Sign in first in order to use application</div>
+	<% end %>
+	</div>
+	
+	<div class="right">
+	
 <div class="sign_in_notice">
     <% if @current_user %>
     Welcome, <%= @current_user.username %>!<br/>
@@ -24,6 +29,7 @@
     <%= link_to "Sign In", new_sessions_path %>
     <%= link_to "Sign Up", new_users_path %>
     <% end %>
+</div>
 </div>
 </nav>
 </header>
