@@ -16,7 +16,7 @@
 <% else %>
 <h4 style="text-shadow: 0 0 #ff0000;font-size: 130%; margin-top: 40px;color: red; text-align: center;">Sign in first in order to use application</h4>
 <% end %>
-<div id="sign_in_notice">
+<div class="sign_in_notice">
     <% if @current_user %>
     Welcome, <%= @current_user.username %>!<br/>
     <%= link_to "Sign Out", sessions_path, method: :delete %>
@@ -26,16 +26,27 @@
     <% end %>
 </div>
 </nav>
-<nav>
-      <a><%= link_to 'Programs', programs_path %></a>
-      <a><%= link_to 'Favorites', user_root_path %></a>
-      <a><%= link_to 'Popular Hotkeys', hotkeys_path %></a>
-</nav>
-
 </header>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <h4 class="title">Links</h4>
+      <nav>
+        <ul>
+		  <li><%= link_to 'Programs', programs_path %></li>
+		  <li><%= link_to 'Favorites', user_root_path %></li>
+		  <li><%= link_to 'Popular Hotkeys', hotkeys_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
   <% flash.each do |type, message| %>
   <p class="flash <%= type %>"><%= message %></p>
   <% end %>
     <%= yield %>
+</main>
+
   </body>
 </html>
