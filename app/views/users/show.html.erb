@@ -1,8 +1,9 @@
+<h1>Favorites</h1>
 <div id="programs">
   <% @sort_favorites.each do |program, hotkeys| %>
     <div class="program">
       <div class="program-name">
-      <h2 style="display:inline-block;"><%= program.name %></h2>
+      <h2 style="display:inline-block;"><%= program.name %></h2><h3>Click on this blue bar to expand</h3>
       </div>
       <div class="hotkey-titles" id="hotkey-titles">
         <div class="hotkey-details">

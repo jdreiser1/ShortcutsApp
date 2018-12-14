@@ -192,13 +192,12 @@ p {
     color: white;
     font-size: 150%;
     position: relative;
-/*    top: 170px;
-*/
+	top: -50px;
 }
 
 .actions {
     position: relative;
-    top: 200px;
+    top: -40px;
 }
 
 .flash {
@@ -224,7 +223,6 @@ p {
     display: flex;
     flex-wrap: wrap;
     font-size: 5px;
-    margin-top: 60px;
     justify-content: center;
 }
 
@@ -239,6 +237,9 @@ p {
 .program-name {
     background-color: rgba(0, 178, 169, 0.75);
     font-size: 200%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .hotkey-titles {
